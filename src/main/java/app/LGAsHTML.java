@@ -18,8 +18,6 @@ import java.sql.Statement;
  * Generate a static HTML page using Javalin
  * by writing the raw HTML into a Java String object
  *
- * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
- * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
  */
 public class LGAsHTML implements Handler {
 
@@ -29,26 +27,27 @@ public class LGAsHTML implements Handler {
     @Override
     public void handle(Context context) throws Exception {
         // Create a simple HTML webpage in a String
-        String html = "<html>";
+        String html = "";
 
         // Add some Head information
         html = html + "<head>" + 
-               "<title>All Movies</title>";
+               "<title>Closing the Gap</title>";
         html= html + "<body>";
 
-    html= html + "<div class="topnav">" +
-        "<a class="menu" href="#home">Home</a>"
-        + "<a >Target Audience</a>" +   
-        "<a>Statistics</a>" + "<a>Support</a>" + 
-        "<a> About us </a>" +
-    "</div>";
-    html = html + 
-        "<ul class="breadcrumb">" +
-            "<li><a href='#'>Logo</a></li>" +
-            "<li><a href='#'>Statistics</a></li>" +
-           " <li><a href='#'>Outcome 5</a></li>" +
-            "<li><a href='#''>Comparison</a></li>" +
-       " </ul>";
+        html = html + "<div class=\"topnav\">" +
+        "<a class=\"menu\" href=\"home.html\">Home</a>" +
+        "<a class=\"menu\" href=\"target.html\">Target Audience</a>" +
+        "<a class=\"menu\" href=\"level2A.html\">Statistics</a>" +
+        "<a class=\"menu\" href=\"support.html\">Support</a>" +
+        "<a class=\"menu\" href=\"aboutus.html\">About us</a>" +
+        "</div>";
+    
+        html = html + "<ul class=\"breadcrumb\">" +
+            "<li><a href=\"home.html\">Logo</a></li>"+
+            "<li><a href=\"level2A.html\">Statistics</a></li>" +
+            "<li><a href=\"notsure\">Outcome 5</a></li>"+
+            "<li><a href=\"comparepopup.html\">Comparison</a></li>" +
+        "</ul>";
                 
         html = html +  
  <div class="container">

@@ -32,6 +32,7 @@ public class Level3 {
     public static void configureRoutes(Javalin app) {
        
         app.get(LGAsHTML.URL, new LGAsHTML());
+        app.get()
     }
 
 }
