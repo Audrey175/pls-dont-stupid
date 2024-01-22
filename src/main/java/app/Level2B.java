@@ -1,8 +1,4 @@
 package app;
-
-public class Level2B {
-    package app;
-
 import java.util.ArrayList;
 
 import io.javalin.http.Context;
@@ -23,7 +19,7 @@ import java.sql.Statement;
  * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
  * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
  */
-public class PageST2B implements Handler {
+public class Level2B implements Handler {
 
     // URL of this page relative to http://localhost:7001/
     public static final String URL = "/page2B.html";
@@ -92,4 +88,4 @@ public class PageST2B implements Handler {
     }
 
 }
-}
+

@@ -20,7 +20,7 @@ import java.sql.Statement;
  * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
  * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
  */
-public class PageMission implements Handler {
+public class Home implements Handler {
 
     // URL of this page relative to http://localhost:7001/
     public static final String URL = "/mission.html";

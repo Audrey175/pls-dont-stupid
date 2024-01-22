@@ -51,13 +51,11 @@ public class LGAsHTML implements Handler {
                 
         html = html +  "<div class='container'>" + "<div class='sidebar'>" + "<h2>Age</h2>" +
     "<div class='section'>" +
-        
-"<form action='/action_page.php>'" +
+    "<form action='/action_page.php>'" +
     "<label for='fname'>State/ Territory</label><br>" +
-    "<input type='text' id='fname' name='fname' value='Search by name or LGAs code...' style='text-align: match-parent;' size='50'><br>" +
-        "<div class='checkbox-container'>" +
-           " <ul>"  +
-                 "<input type=checkbox' id='nsw'>" +"<label for='nsw'>Select all</label>" +
+    "<input type='text' id='fname' name='fname' value='Search by name or LGAs code...' style='text-align: match-parent;' size='50'><br>" ;
+    html = html + "<div class='checkbox-container'>" +
+    " <ul>"  + "<input type=checkbox' id='nsw'>" +"<label for='nsw'>Select all</label>" +
                 "<li>" +
                 "<input type=checkbox' id='nsw'>" +
                 "<label for='nsw'>New South Wales - NSW</label>"
