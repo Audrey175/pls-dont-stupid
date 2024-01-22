@@ -1,6 +1,7 @@
 package app;
 
 import java.util.ArrayList;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,12 +11,14 @@ import java.sql.Statement;
 /**
  * Class for Managing the JDBC Connection to a SQLLite Database.
  * Allows SQL queries to be used with the SQLLite Databse in Java.
-
+ *
+ * @author Timothy Wiley, 2023. email: timothy.wiley@rmit.edu.au
+ * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
  */
 public class JDBCConnection {
 
     // Name of database file (contained in database folder)
-    public static final String DATABASE = "jdbc:sqlite:database/Milestone1.db";
+    public static final String DATABASE = "jdbc:sqlite:database/vtp.db";
 
     /**
      * This creates a JDBC Object so we can keep talking to the database
@@ -25,18 +28,16 @@ public class JDBCConnection {
     }
 
     /**
-     * Get all of the Movies in the database.
-     * 
+     * Get all of the LGAs in the database.
      * @return
-     *         Returns an ArrayList of Movie objects
+     *    Returns an ArrayList of LGA objects
      */
-    // public ArrayList<Movie> getMovies() {
-    // Create the ArrayList to return - this time of Movie objects
-    // ArrayList<Movie> movies = new ArrayList<Movie>();
+    public ArrayList<LGA> getLGAs2016() {
+        // Create the ArrayList of LGA objects to return
+        ArrayList<LGA> lgas = new ArrayList<LGA>();
 
-    // Setup the variable for the JDBC connection
-    Connection connection = null;
-    {
+        // Setup the variable for the JDBC connection
+        Connection connection = null;
 
         try {
             // Connect to JDBC data base
@@ -47,27 +48,22 @@ public class JDBCConnection {
             statement.setQueryTimeout(30);
 
             // The Query
-            String query = "SELECT * FROM ";
-
+            String query = "SELECT * FROM LGA WHERE year='2016'";
+            
             // Get Result
             ResultSet results = statement.executeQuery(query);
 
             // Process all of the results
-            // The "results" variable is similar to an array
-            // We can iterate through all of the database query results
             while (results.next()) {
-                // Create a Movie Object
-                // Movie movie = new Movie();
+                // Lookup the columns we need
+                int code     = results.getInt("code");
+                String name  = results.getString("name");
 
-                // Lookup the columns we want, and set the movie object field
-                // BUT, we must be careful of the column type!
-                //movie.id = results.getInt("mvnumb");
-                //movie.name = results.getString("mvtitle");
-                //movie.year = results.getInt("yrmde");
-                //movie.genre = results.getString("mvtype");
+                // Create a LGA Object
+                LGA lga = new LGA(code, name, 2016);
 
-                // Add the movie object to the array
-                //movies.add(movie);
+                // Add the lga object to the array
+                lgas.add(lga);
             }
 
             // Close the statement because we are done with it
@@ -87,66 +83,9 @@ public class JDBCConnection {
             }
         }
 
-        // Finally we return all of the movies
-        //return movies;
+        // Finally we return all of the lga
+        return lgas;
     }
 
-    public int countMovies() {
-        // Create the ArrayList to return - this time of Movie objects
-
-        // Setup the variable for the JDBC connection
-        Connection connection = null;
-        int count = 0;
-
-        try {
-            // Connect to JDBC data base
-            connection = DriverManager.getConnection(DATABASE);
-
-            // Prepare a new SQL Query & Set a timeout
-            Statement statement = connection.createStatement();
-            statement.setQueryTimeout(30);
-
-            // The Query
-            String query = "SELECT COUNT (*) AS movieCount FROM movie;";
-
-            // Get Result
-            ResultSet results = statement.executeQuery(query);
-
-            // Process all of the results
-            // The "results" variable is similar to an array
-            // We can iterate through all of the database query results
-            while (results.next()) {
-                // Create a Movie Object
-                count = results.getInt("movieCount");
-
-                // Lookup the columns we want, and set the movie object field
-                // BUT, we must be careful of the column type!
-
-                // Add the movie object to the array
-
-            }
-
-            // Close the statement because we are done with it
-            statement.close();
-        } catch (SQLException e) {
-            // If there is an error, lets just print the error
-            System.err.println(e.getMessage());
-        } finally {
-            // Safety code to cleanup
-            try {
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                // connection close failed.
-                System.err.println(e.getMessage());
-            }
-        }
-
-        // Finally we return all of the movies
-        return count;
-    }
-
-    // TODO: Keep adding more methods here to answer all of the questions from the
-    // Studio Class activities
+    // TODO: Add your required methods here
 }
