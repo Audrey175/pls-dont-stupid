@@ -34,7 +34,6 @@ public class LGAsHTML implements Handler {
                "<title>Closing the Gap</title>";
         html= html + "<body>";
 
-<<<<<<< HEAD
         html = html + "<div class=\"topnav\">" +
         "<a class=\"menu\" href=\"home.html\">Home</a>" +
         "<a class=\"menu\" href=\"target.html\">Target Audience</a>" +
@@ -49,21 +48,6 @@ public class LGAsHTML implements Handler {
             "<li><a href=\"notsure\">Outcome 5</a></li>"+
             "<li><a href=\"comparepopup.html\">Comparison</a></li>" +
         "</ul>";
-=======
-    html= html + "<div class='topnav'>" +
-        "<a class='menu' href='#home'>Home</a>"
-        + "<a >Target Audience</a>" +   
-        "<a>Statistics</a>" + "<a>Support</a>" + 
-        "<a> About us </a>" +
-    "</div>";
-    html = html + 
-        "<ul class='breadcrumb'>" +
-            "<li><a href='#'>Logo</a></li>" +
-            "<li><a href='#'>Statistics</a></li>" +
-           " <li><a href='#'>Outcome 5</a></li>" +
-            "<li><a href='#''>Comparison</a></li>" +
-       " </ul>";
->>>>>>> ba466adbf9bd479bce1bd1aff64170b24cff6f11
                 
         html = html +  "<div class='container'>" + "<div class='sidebar'>" + "<h2>Age</h2>" +
     "<div class='section'>" +
